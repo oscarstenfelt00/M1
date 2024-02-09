@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const bilarRouter = require('./routes/bilar');
+const movmentsRouter = require('./routes/movments');
 
 const app = express();
 
@@ -34,7 +34,7 @@ console.log("Kopplingen lyckades!");
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/bilar', bilarRouter);
+app.use('/movments', movmentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,17 +3,13 @@ var mongoose = require('mongoose');
 //Ett "schema" över hur varje dokument ska se ut
 var BilSchema = new mongoose.Schema({
 
-    reg:String,
-    marke:String,
-    modell:String,
-    drivmedel:String,
-    farg:String,
-    kaross:String
-
+    Movment:String,
+    PrimaryMuscles:String,
+    Instructions:String
 },
 {
 //Vart vi hittar datan i databasen
-collection: 'bilar'
+collection: 'movments'
 });
 
 //exporterar schemat och filen
