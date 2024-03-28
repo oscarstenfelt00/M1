@@ -15,6 +15,17 @@ router.get('/', function(req, res, next) {
    });
 
 });
+//req och res här är request- respektive response-objekten
+router.get('/:id', function(req, res, next) {
+
+//find är Mongoose funktion.
+   MovmentsModel.findById(req.params.id, req.body).then(function(movments) {
+
+//Om det inte uppstår fel så skicka bilarna i jsonformat
+   res.json(movments);
+   });
+
+});
 
 router.post('/', function(req, res, next) {
    //req.body är innehållet i requestobjektet, dvs en json med en bil
@@ -30,11 +41,12 @@ router.post('/', function(req, res, next) {
    });
 });
 
- //Hittar posten med det unika id
+ //Hittar posten med det unika id och uppdatar
  router.post('/:id', function(req, res, next) {
    MovmentsModel.findByIdAndUpdate(req.params.id, req.body).then(function(post) {
    res.json(post); //Här skickar vi tillbaka den datan vi uppdaterade om skrivningen gick bra
    });
 });
+
 
 module.exports = router;

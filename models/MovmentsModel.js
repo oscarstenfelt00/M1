@@ -3,13 +3,14 @@ var mongoose = require('mongoose');
 //Ett "schema" över hur varje dokument ska se ut
 var BilSchema = new mongoose.Schema({
 
-    Movment:String,
-    PrimaryMuscles:String,
-    Instructions:String
+    titel:String,
+    regi:String,
+    poster:String,
+    releaseYear:Number
 },
 {
 //Vart vi hittar datan i databasen
-collection: 'movments'
+collection: 'filmer'
 });
 
 //exporterar schemat och filen
